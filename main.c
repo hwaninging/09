@@ -1,43 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ROWS 3
-#define COLS 3
-//5. 행렬 처리 
-
-void addMatrix(int A[][COLS], int B[][COLS], int C[][COLS])
-{
-     int i,j;
-     for (i=0;i<ROWS;i++)
-          for (j=0;j<COLS;j++)
-          C[i][j] = A[i][j] + B[i][j];
-}
-
-void printMatrix(int A[][COLS])
-{
-     int i,j;
-     for (i=0;i<ROWS;i++)
-     {
-         for (j=0;j<COLS;j++)
-         printf("%3d", A[i][j]);
-         printf("\n");
-         }
-}
+#define SIZE 3
+//2. 배열 및 반복문 활용
+//학생 성적 평균 (간단 ver.)
 
 int main(void)
 {
-  int A[ROWS][COLS] = { //더하기 대상 행렬
-    {2,3,0},
-    {8,9,1}, 
-    {7,0,5}};
-  int B[ROWS][COLS] = { //더하기 대상 행렬
-    {1,0,0},
-    {0,1,0}, 
-    {0,0,1}};
-  int C[ROWS][COLS]; //덧셈 결과 행렬 
+    int test_score[SIZE];
+    int i;
+    int sum=0;
     
- addMatrix(A, B, C);
- printMatrix(C);
+    printf("i명의 점수를 입력하세요. \n", SIZE);
+    
+    for(i=0;i<SIZE;i++) //반복문 
+    {
+        scanf("%d", &test_score[i]);
+         sum += test_score[i];
+    }               
+    
+    #if 0
+    for (i=0;i<SIZE;i++)
+    printf("test_score[%i] = %i\n", i, test_score[i]);
+    #endif
+    printf("성적 평균: %i\n", sum/SIZE); 
   
   system("PAUSE");	
   return 0;
