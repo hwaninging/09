@@ -1,29 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 3
-//2. 배열 및 반복문 활용
-//학생 성적 평균 (간단 ver.)
+#define SIZE 5
+//3. 배열 값 비교(원래 목표) retry! 
 
 int main(void)
 {
-    int test_score[SIZE];
     int i;
-    int sum=0;
-    
-    printf("i명의 점수를 입력하세요. \n", SIZE);
+    int a[SIZE] = {1, 2, 3, 4, 5};
+    int b[SIZE] = {1, 2, 7, 4, 5};
+    int flag_same = 1;
     
     for(i=0;i<SIZE;i++) //반복문 
     {
-        scanf("%d", &test_score[i]);
-         sum += test_score[i];
+        if (a[i] != b[i])
+        {
+        printf("%i-th element is dff.\n", i);
+        flag_same = 0;
     }               
-    
-    #if 0
-    for (i=0;i<SIZE;i++)
-    printf("test_score[%i] = %i\n", i, test_score[i]);
-    #endif
-    printf("성적 평균: %i\n", sum/SIZE); 
+}  
+    printf("Are a and b the same? %i\n" ,flag_same); //더 친절하게 하려면 조건문 활용 
   
   system("PAUSE");	
   return 0;
